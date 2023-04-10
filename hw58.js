@@ -8,6 +8,31 @@ function hideSplashScreen() {
 }
 
 //task2
+let post = {
+    img: "",
+    content: "Текст поста",
+    time: "17:43",
+    comments: [
+        {
+          text: 'Great post!',
+          createdAt: '2022-03-16T10:12:31.005Z'
+        },
+        {
+          text: 'I love it!',
+          createdAt: '2022-03-16T12:45:23.986Z'
+        }
+      ],
+    user: {
+            login: 'salmor'
+           }
+};
+let comment = {
+    text: "Комментарий",
+    time: "10:12:31",
+    user: {
+            login: 'salmor'
+          }
+};
 function createCommentElement(comment) {
   const commentElement = document.createElement('div');
   commentElement.className = 'comment';
@@ -15,59 +40,85 @@ function createCommentElement(comment) {
   const textElement = document.createElement('p');
   textElement.innerText = comment.text;
 
-  const timeElement = document.createElement('span');
+  const timeElement = document.createElement('p');
   timeElement.innerText = comment.time;
 
-  const userElement = document.createElement('span');
-  userElement.innerText = comment.user;
+  const userElement = document.createElement('p');
+  userElement.innerText = comment.user.login;
 
   commentElement.appendChild(textElement);
   commentElement.appendChild(timeElement);
   commentElement.appendChild(userElement);
-
   return commentElement;
 }
+
 //task3
-function createPostElement(post) {
-  const postElement = document.createElement('div');
-  postElement.className = 'post';
+let post1 = {
+    imageUrl: './salmor.jpg',
+      description: 'This is my first post!',
+      createdAt: '10:00:00',
+      user: {
+        login: 'salmor'
+      },
+      comments: [
+        {
+            text: "Комментарий",
+            time: "10:12:31",
+            user: {
+                    login: 'salmor'
+                  }
+        },
+        {
+                text: "Комментарий",
+              time: "10:12:31",
+              user: {
+                      login: 'salmor'
+                    }
+        }
+      ]
+};
+function createPostElement(post1) {
+      const postElement = document.createElement('div');
+      postElement.className = 'post';
 
-  const imageElement = document.createElement('img');
-  imageElement.className = 'post-image';
-  imageElement.src = post.imageUrl;
-  imageElement.alt = 'Post image';
+      const imageElement = document.createElement('img');
+      imageElement.className = 'post-image';
+      imageElement.src = post1.imageUrl;
+      imageElement.alt = 'Post image';
 
-  const descriptionElement = document.createElement('p');
-  descriptionElement.className = 'post-description';
-  descriptionElement.innerText = post.description;
+      const descriptionElement = document.createElement('p');
+      descriptionElement.className = 'post-description';
+      descriptionElement.innerText = post1.description;
 
-  const timeElement = document.createElement('span');
-  timeElement.className = 'post-time';
-  timeElement.innerText = post.time;
+      const timeElement = document.createElement('p');
+      timeElement.className = 'post-time';
+      timeElement.innerText = post1.createdAt;
 
-  const userElement = document.createElement('span');
-  userElement.className = 'post-user';
-  userElement.innerText = post.user;
+      const userElement = document.createElement('p');
+      userElement.className = 'post-user';
+      userElement.innerText = post1.user.login;
 
-  const commentsElement = document.createElement('div');
-  commentsElement.className = 'post-comments';
+      const commentsElement = document.createElement('div');
+      commentsElement.className = 'post-comments';
 
-  post.comments.forEach((comment) => {
-    const commentElement = createCommentElement(comment);
-    commentsElement.appendChild(commentElement);
-  });
+      post1.comments.forEach((comment) => {
+        const commentElement = createCommentElement(comment);
+        commentsElement.appendChild(commentElement);
+      });
 
-  postElement.appendChild(imageElement);
-  postElement.appendChild(descriptionElement);
-  postElement.appendChild(timeElement);
-  postElement.appendChild(userElement);
-  postElement.appendChild(commentsElement);
-
-  return postElement;
+      postElement.appendChild(imageElement);
+      postElement.appendChild(descriptionElement);
+      postElement.appendChild(timeElement);
+      postElement.appendChild(userElement);
+      postElement.appendChild(commentsElement);
+      return postElement;
 }
+
+createPostElement(post1);
 
 //task4
 function addPost(postElement) {
-  const postsContainer = document.getElementById('posts-container');
+  const postsContainer = document.getElementById('post');
   postsContainer.appendChild(postElement);
 }
+
