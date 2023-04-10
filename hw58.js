@@ -9,7 +9,7 @@ function hideSplashScreen() {
 
 //task2
 let post = {
-    img: "",
+    img: "./salmor.jpg",
     content: "Текст поста",
     time: "17:43",
     comments: [
@@ -54,7 +54,7 @@ function createCommentElement(comment) {
 
 //task3
 let post1 = {
-    imageUrl: './salmor.jpg',
+    imageUrl: './post.jpg',
       description: 'This is my first post!',
       createdAt: '10:00:00',
       user: {
@@ -121,4 +121,6 @@ function addPost(postElement) {
   const postsContainer = document.getElementById('post');
   postsContainer.appendChild(postElement);
 }
+
+addPost(createPostElement(post1))
 
