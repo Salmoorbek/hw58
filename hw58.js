@@ -8,27 +8,9 @@ function hideSplashScreen() {
 }
 
 //task2
-let post = {
-    img: "./salmor.jpg",
-    content: "Текст поста",
-    time: "17:43",
-    comments: [
-        {
-          text: 'Great post!',
-          createdAt: '2022-03-16T10:12:31.005Z'
-        },
-        {
-          text: 'I love it!',
-          createdAt: '2022-03-16T12:45:23.986Z'
-        }
-      ],
-    user: {
-            login: 'salmor'
-           }
-};
 let comment = {
-    text: "Комментарий",
-    time: "10:12:31",
+    text: "саппорты красавчики!!!",
+    time: "2022-05-12 14:00:00",
     user: {
             login: 'salmor'
           }
@@ -55,22 +37,22 @@ function createCommentElement(comment) {
 //task3
 let post1 = {
     imageUrl: './post.jpg',
-      description: 'This is my first post!',
-      createdAt: '10:00:00',
+      description: 'salmorsalmorsalmorsalmor',
+      createdAt: '2022-05-12 14:00:00',
       user: {
         login: 'salmor'
       },
       comments: [
         {
-            text: "Комментарий",
-            time: "10:12:31",
+            text: "классная фотка",
+            time: "2022-05-12 14:30:00",
             user: {
                     login: 'salmor'
                   }
         },
         {
-                text: "Комментарий",
-              time: "10:12:31",
+                text: "мне не нравится",
+              time: "2022-05-12 14:35:00",
               user: {
                       login: 'salmor'
                     }
@@ -105,7 +87,6 @@ function createPostElement(post1) {
         const commentElement = createCommentElement(comment);
         commentsElement.appendChild(commentElement);
       });
-
       postElement.appendChild(imageElement);
       postElement.appendChild(descriptionElement);
       postElement.appendChild(timeElement);
@@ -114,13 +95,10 @@ function createPostElement(post1) {
       return postElement;
 }
 
-createPostElement(post1);
-
 //task4
 function addPost(postElement) {
   const postsContainer = document.getElementById('post');
   postsContainer.appendChild(postElement);
 }
 
-addPost(createPostElement(post1))
 
